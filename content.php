@@ -17,8 +17,6 @@
 			<div class="entry-byline">
 				<span class="author vcard"><?php the_author_posts_link(); ?></span>
 				<span class="sep">/</span>
-				<?php echo do_shortcode( '[entry-views after="' . __( ' Views', 'biancaa' ) . '"]' ); ?>
-				<span class="sep">/</span>
 				<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 					<span class="comments-link"><?php comments_popup_link( __( '0 Comments', 'biancaa' ), __( '1 Comment', 'biancaa' ), __( '% Comments', 'biancaa' ) ); ?></span>
 				<?php endif; ?>

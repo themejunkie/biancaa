@@ -4,8 +4,8 @@
  * Eventually, some of the functionality here could be replaced by core features.
  * 
  * @package    Biancaa
- * @author     ThemePhe
- * @copyright  Copyright (c) 2014, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2014, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -303,34 +303,26 @@ function biancaa_related_posts() {
 		return;
 	}
 
-	// Used transient API to cache the related posts.
-	if ( false === ( $related = get_transient( 'biancaa_related_query' ) ) ) {
+	// Query arguments.
+	$query = array(
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'id',
+				'terms'    => $terms,
+				'operator' => 'IN'
+			)
+		),
+		'posts_per_page' => 3,
+		'exclude'        => get_the_ID(),
+		'post_type'      => 'post',
+	);
 
-		// Query arguments.
-		$query = array(
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'category',
-					'field'    => 'id',
-					'terms'    => $terms,
-					'operator' => 'IN'
-				)
-			),
-			'posts_per_page' => 3,
-			'exclude'        => get_the_ID(),
-			'post_type'      => 'post',
-		);
+	// Allow plugins/themes developer to filter the default query.
+	$query = apply_filters( 'biancaa_related_posts_query', $query );
 
-		// Allow plugins/themes developer to filter the default query.
-		$query = apply_filters( 'biancaa_related_posts_query', $query );
-
-		// Perform the query.
-		$related = new WP_Query( $query );
-
-		// Put the query results in a transient.
-		set_transient( 'biancaa_related_query', $related, 60 * MINUTE_IN_SECONDS );
-
-	}
+	// Perform the query.
+	$related = new WP_Query( $query );
 	
 	if ( $related->have_posts() ) :
 
@@ -345,7 +337,7 @@ function biancaa_related_posts() {
 					$html .= '<li>';
 
 						if ( has_post_thumbnail() ) {
-							$html .=  '<a href="' . get_permalink() . '" rel="bookmark">' . get_the_post_thumbnail( get_the_ID(), 'medium', array( 'class' => 'related-thumb', 'alt' => esc_attr( get_the_title() ) ) ) . '</a>';
+							$html .=  '<a href="' . get_permalink() . '" rel="bookmark">' . get_the_post_thumbnail( get_the_ID(), 'biancaa-related', array( 'class' => 'related-thumb', 'alt' => esc_attr( get_the_title() ) ) ) . '</a>';
 						}
 						$html .= '<h2 class="related-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h2>';
 						$html .= '<time class="entry-published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( get_the_date() ) . '</time>';
@@ -369,18 +361,6 @@ function biancaa_related_posts() {
 
 }
 endif;
-
-/**
- * Flush out the transients used in biancaa_related_posts.
- *
- * @since 1.0.0
- */
-function biancaa_related_transient_flusher() {
-	// Like, beat it. Dig?
-	delete_transient( 'biancaa_related_query' );
-}
-add_action( 'save_post', 'biancaa_related_transient_flusher' );
-add_action( 'optionsframework_after_validate', 'biancaa_related_transient_flusher' );
 
 if ( ! function_exists( 'biancaa_post_author' ) ) :
 /**

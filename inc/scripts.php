@@ -3,8 +3,8 @@
  * Enqueue scripts and styles.
  *
  * @package    Biancaa
- * @author     ThemePhe
- * @copyright  Copyright (c) 2014, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2014, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -37,6 +37,11 @@ function biancaa_enqueue() {
 
 		// Load main stylesheet
 		wp_enqueue_style( 'biancaa-style', trailingslashit( get_template_directory_uri() ) . 'style.min.css', array( 'dashicons' ) );
+
+		// If child theme is active, load the stylesheet.
+		if ( is_child_theme() ) {
+			wp_enqueue_style( 'biancaa-child-style', get_stylesheet_uri() );
+		}
 
 		// Load custom js plugins.
 		wp_enqueue_script( 'biancaa-scripts', trailingslashit( get_template_directory_uri() ) . 'assets/js/biancaa.min.js', array( 'jquery' ), null, true );

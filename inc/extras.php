@@ -5,8 +5,8 @@
  * Eventually, some of the functionality here could be replaced by core features
  *
  * @package    Biancaa
- * @author     ThemePhe
- * @copyright  Copyright (c) 2014, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2014, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */

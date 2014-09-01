@@ -4,8 +4,8 @@
  * developers to create textarea settings within the WordPress theme customizer.
  *
  * @package    Biancaa
- * @author     ThemePhe
- * @copyright  Copyright (c) 2014, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2014, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  * @link       http://otto42.com/bj

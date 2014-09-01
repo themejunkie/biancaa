@@ -6,11 +6,18 @@
  * custom hooks and Theme settings.
  * 
  * @package    Biancaa
- * @author     ThemePhe
- * @copyright  Copyright (c) 2014, ThemePhe
+ * @author     Theme Junkie
+ * @copyright  Copyright (c) 2014, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
+
+/**
+ * Set the content width based on the theme's design and stylesheet.
+ */
+if ( ! isset( $content_width ) ) {
+		$content_width = 660; /* pixels */
+	}
 
 if ( ! function_exists( 'biancaa_theme_setup' ) ) :
 /**
@@ -19,12 +26,6 @@ if ( ! function_exists( 'biancaa_theme_setup' ) ) :
  * @since  1.0.0
  */
 function biancaa_theme_setup() {
-
-	// Set the content width based on the theme's design and stylesheet.
-	global $content_width;
-	if ( ! isset( $content_width ) ) {
-		$content_width = 660; /* pixels */
-	}
 
 	// Make the theme available for translation.
 	load_theme_textdomain( 'biancaa', trailingslashit( get_template_directory() ) . 'languages' );
@@ -41,6 +42,7 @@ function biancaa_theme_setup() {
 	add_image_size( 'biancaa-featured-full', 960, 370, true );
 	add_image_size( 'biancaa-slides', 960, 400, true );
 	add_image_size( 'biancaa-widget', 262, 200, true );
+	add_image_size( 'biancaa-related', 195, 110, true );
 
 	// Register custom navigation menu.
 	register_nav_menus(
@@ -132,11 +134,6 @@ require trailingslashit( get_template_directory() ) . 'inc/template-tags.php';
 require trailingslashit( get_template_directory() ) . 'inc/scripts.php';
 
 /**
- * Require and recommended plugins list.
- */
-require trailingslashit( get_template_directory() ) . 'inc/plugins.php';
-
-/**
  * Custom functions that act independently of the theme templates.
  */
 require trailingslashit( get_template_directory() ) . 'inc/extras.php';
@@ -151,10 +148,8 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
  *
  * @link  http://themehybrid.com/hybrid-core Hybrid Core site.
  */
-require trailingslashit( get_template_directory() ) . 'inc/hybrid/breadcrumb-trail.php';
 require trailingslashit( get_template_directory() ) . 'inc/hybrid/loop-pagination.php';
 require trailingslashit( get_template_directory() ) . 'inc/hybrid/theme-layouts.php';
-require trailingslashit( get_template_directory() ) . 'inc/hybrid/entry-views.php';
 
 /**
  * Custom widgets.
