@@ -1,0 +1,59 @@
+a:link, a:visited, .site-header .site-title a, .entry-header .entry-byline, .entry-header .entry-byline a {
+  color: #ff0080;
+}
+
+.menu-primary-items li.current-menu-item a,
+.menu-primary-items a:hover,
+.menu-primary-items .sub-menu,
+.menu-primary-items li.sfHover .sf-with-ul,
+.owl-theme .owl-controls .owl-page.active span.owl-numbers,
+.owl-theme .owl-controls .owl-page span.owl-numbers:hover,
+.slides-item:hover .slide-title, .slides-item:hover .published,
+.post .img-link:hover > .entry-title,
+.post .img-link:hover > .published,
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover, button,
+a.button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  background-color: #ff0080;
+}
+
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover, button,
+a.button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  border-color: #ff0080;
+}
+
+.menu-primary-items .sub-menu a:hover {
+  background-color: #ff3399;
+}
+
+a:hover, a:visited:hover {
+  color: #cc0066;
+}
+
+.menu-primary-items a:hover,
+.menu-primary-items a:visited:hover {
+  color: white;
+}
+
+.entry-header .entry-byline a:hover {
+  color: #cc0066;
+}
+
+.main-navigation .menu-wrapper {
+  border-bottom: 5px solid #ff0080;
+}
+
+button:hover,
+a.button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #ff3399;
+}
