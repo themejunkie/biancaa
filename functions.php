@@ -57,8 +57,7 @@ function biancaa_theme_setup() {
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'biancaa_custom_background_args', array(
-		'default-color' => 'f2f2f2',
-		'default-image' => '',
+		'default-color' => 'f2f2f2'
 	) ) );
 
 	/*
