@@ -54,24 +54,24 @@ class Biancaa_About_Widget extends WP_Widget {
 			}
 
 			if ( $instance['bio'] ) {
-				echo '<p>' . $instance['bio'] . '</p>';
+				echo '<p>' . stripslashes( $instance['bio'] ) . '</p>';
 			}
 
 			echo '<ul>';
 				if ( $instance['twitter'] ) {
-					echo '<li><a href="' . $instance['twitter'] . '"><span class="genericon genericon-twitter"></span></a></li>';
+					echo '<li><a href="' . esc_url( $instance['twitter'] ) . '"><span class="genericon genericon-twitter"></span></a></li>';
 				} 
 
 				if ( $instance['facebook'] ) {
-					echo '<li><a href="' . $instance['facebook'] . '"><span class="genericon genericon-facebook"></span></a></li>';
+					echo '<li><a href="' . esc_url( $instance['facebook'] ) . '"><span class="genericon genericon-facebook"></span></a></li>';
 				}
 
 				if ( $instance['gplus'] ) {
-					echo '<li><a href="' . $instance['gplus'] . '"><span class="genericon genericon-googleplus"></span></a></li>';
+					echo '<li><a href="' . esc_url( $instance['gplus'] ) . '"><span class="genericon genericon-googleplus"></span></a></li>';
 				}
 
 				if ( $instance['linkedin'] ) {
-					echo '<li><a href="' . $instance['linkedin'] . '"><span class="genericon genericon-linkedin-alt"></span></a></li>';
+					echo '<li><a href="' . esc_url( $instance['linkedin'] ) . '"><span class="genericon genericon-linkedin-alt"></span></a></li>';
 				}
 			echo '</ul>';
 
@@ -92,10 +92,10 @@ class Biancaa_About_Widget extends WP_Widget {
 		$instance['title']    = strip_tags( $new_instance['title'] );
 		$instance['gravatar'] = is_email( $new_instance['gravatar'] );
 		$instance['bio']      = wp_filter_post_kses( $new_instance['bio'] );
-		$instance['twitter']  = esc_url( $new_instance['twitter'] );
-		$instance['facebook'] = esc_url( $new_instance['facebook'] );
-		$instance['gplus']    = esc_url( $new_instance['gplus'] );
-		$instance['linkedin'] = esc_url( $new_instance['linkedin'] );
+		$instance['twitter']  = esc_url_raw( $new_instance['twitter'] );
+		$instance['facebook'] = esc_url_raw( $new_instance['facebook'] );
+		$instance['gplus']    = esc_url_raw( $new_instance['gplus'] );
+		$instance['linkedin'] = esc_url_raw( $new_instance['linkedin'] );
 
 		return $instance;
 	}

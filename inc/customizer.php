@@ -36,8 +36,9 @@ function biancaa_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 
 		'biancaa_show_gravatar',
 		array(
-			'default'    => false,
-			'capability' => 'edit_theme_options'
+			'default'           => 0,
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'biancaa_sanitize_checkbox'
 		) 
 	);
 
@@ -57,7 +58,7 @@ function biancaa_customize_register( $wp_customize ) {
 		'biancaa_gravatar_email',
 		array(
 			'default'           => get_option( 'admin_email' ),
-			'sanitize_callback' => 'wp_filter_post_kses',
+			'sanitize_callback' => 'is_email',
 			'capability'        => 'edit_theme_options'
 		) 
 	);
@@ -86,7 +87,7 @@ function biancaa_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'biancaa_logo',
 			array(
-				'sanitize_callback' => 'esc_url',
+				'sanitize_callback' => 'esc_url_raw',
 				'capability'        => 'edit_theme_options'
 			)
 		);
@@ -114,7 +115,7 @@ function biancaa_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'biancaa_favicon',
 			array(
-				'sanitize_callback' => 'esc_url',
+				'sanitize_callback' => 'esc_url_raw',
 				'capability'        => 'edit_theme_options'
 			)
 		);
@@ -240,8 +241,9 @@ function biancaa_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'biancaa_schemes_chooser',
 			array(
-				'default'    => 'premade',
-				'capability' => 'edit_theme_options'
+				'default'           => 'premade',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'biancaa_sanitize_radio'
 			)
 		);
 
@@ -265,8 +267,9 @@ function biancaa_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'biancaa_color_schemes',
 			array(
-				'default'     => 'default',
-				'capability'  => 'edit_theme_options'
+				'default'           => 'default',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'biancaa_sanitize_radio'
 			)
 		);
 
@@ -294,8 +297,9 @@ function biancaa_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'biancaa_color_accent',
 			array(
-				'default'     => '#000000',
-				'capability'  => 'edit_theme_options'
+				'default'           => '#000000',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'sanitize_hex_color'
 			)
 		);
 
@@ -311,6 +315,36 @@ function biancaa_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'biancaa_customize_register' );
+
+/**
+ * Sanitize a checkbox to only allow 0 or 1
+ *
+ * @since  1.0.1
+ */
+function biancaa_sanitize_checkbox( $input ) {
+	if ( $input == 1 ) {
+		return 1;
+    } else {
+		return 0;
+    }
+}
+
+/**
+ * Sanitize color chooser.
+ *
+ * @since  1.0.1
+ */
+function biancaa_sanitize_radio( $input ) {
+	global $wp_customize;
+ 
+    $control = $wp_customize->get_control( $setting->id );
+ 
+	if ( array_key_exists( $input, $control->choices ) ) {
+        return $input;
+    } else {
+        return $setting->default;
+    }
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

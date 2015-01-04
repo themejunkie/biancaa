@@ -31,7 +31,8 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					style: 'expanded',
-					require: ['susy','bourbon']
+					require: ['susy'],
+					source: 'none',
 				},
 				files: {
 					'style.css': 'scss/style.scss',
@@ -41,7 +42,8 @@ module.exports = function(grunt) {
 			prod: {
 				options: {
 					style: 'compressed',
-					require: ['susy','bourbon']
+					require: ['susy'],
+					source: 'none',
 				},
 				files: {
 					'style.min.css': 'scss/style.scss',
@@ -94,6 +96,8 @@ module.exports = function(grunt) {
 					'!csscomb.json',
 					'!.gitignore',
 					'!.jshintrc',
+					'!*.map',
+					'!**/*.map',
 					'!**/Gruntfile.js',
 					'!**/package.json',
 					'!**/*~'

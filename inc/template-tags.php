@@ -25,11 +25,11 @@ function biancaa_site_branding() {
 	$logo = get_theme_mod( 'biancaa_logo' );
 
 	// Get the gravatar setting.
-	$show_gravatar  = get_theme_mod( 'biancaa_show_gravatar', false );
+	$show_gravatar  = get_theme_mod( 'biancaa_show_gravatar', 0 );
 	$email_gravatar = is_email( get_theme_mod( 'biancaa_gravatar_email', get_option( 'admin_email' ) ) );
 
 	// Display the gravatar.
-	if ( $show_gravatar === true && ! empty( $email_gravatar ) ) {
+	if ( $show_gravatar === 1 && ! empty( $email_gravatar ) ) {
 		echo get_avatar( $email_gravatar, 100, 'mystery', esc_attr( get_bloginfo( 'name' ) ) );
 	}
 

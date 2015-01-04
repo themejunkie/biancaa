@@ -27,19 +27,19 @@ get_header(); ?>
 						<ul class="about-social">
 							<li class="twitter">
 								<span class="genericon genericon-twitter"></span>
-								<a href="<?php the_author_meta( 'twitter' ); ?>"><?php the_author_meta( 'twitter' ); ?></a>
+								<a href="<?php echo esc_url( get_the_author_meta( 'twitter' ) ); ?>"><?php the_author_meta( 'twitter' ); ?></a>
 							</li>
 							<li class="fb">
 								<span class="genericon genericon-facebook"></span>
-								<a href="<?php the_author_meta( 'facebook' ); ?>"><?php the_author_meta( 'facebook' ); ?></a>
+								<a href="<?php echo esc_url( get_the_author_meta( 'facebook' ) ); ?>"><?php the_author_meta( 'facebook' ); ?></a>
 							</li>
 							<li class="linkedin">
 								<span class="genericon genericon-linkedin-alt"></span>
-								<a href="<?php the_author_meta( 'linkedin' ); ?>"><?php the_author_meta( 'linkedin' ); ?></a>
+								<a href="<?php echo esc_url( get_the_author_meta( 'linkedin' ) ); ?>"><?php the_author_meta( 'linkedin' ); ?></a>
 							</li>
 							<li class="dribbble">
 								<span class="genericon genericon-dribbble"></span>
-								<a href="<?php the_author_meta( 'dribbble' ); ?>"><?php the_author_meta( 'dribbble' ); ?></a>
+								<a href="<?php echo esc_url( get_the_author_meta( 'dribbble' ) ); ?>"><?php the_author_meta( 'dribbble' ); ?></a>
 							</li>
 						</ul>
 					</div>

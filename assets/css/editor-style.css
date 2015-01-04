@@ -1,11 +1,27 @@
-@import url("//fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400italic,600italic,400,600");
-@import url("../../style.min.css");
-body#tinymce {
-  background-color: #fff;
-  margin: 0 auto;
-  padding: 1.5rem 1.5rem 0;
-  border: none;
+html .mceContentBody {
+  font-size: 15px;
+  max-width: 730px;
+}
+
+body {
+  color: #23292b;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  line-height: 21px;
+  vertical-align: baseline;
+}
+
+blockquote {
+  border-left: 5px solid #cccccc;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #888;
+  font-style: italic;
+  padding-left: 20px;
+}
+
+p {
+  margin-bottom: 20px;
   color: #555;
-  font-size: 14px;
-  line-height: 1.5em;
 }
