@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 				options: {
 					style: 'expanded',
 					require: ['susy'],
-					source: 'none',
+					sourcemap: 'none',
 				},
 				files: {
 					'style.css': 'scss/style.scss',
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 				options: {
 					style: 'compressed',
 					require: ['susy'],
-					source: 'none',
+					sourcemap: 'none',
 				},
 				files: {
 					'style.min.css': 'scss/style.scss',

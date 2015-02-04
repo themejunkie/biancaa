@@ -50,7 +50,7 @@ class Biancaa_About_Widget extends WP_Widget {
 		echo '<div class="about-widget-content">';
 
 			if ( $instance['gravatar'] ) {
-				echo get_avatar( $instance['gravatar'], 70 );
+				echo get_avatar( is_email( $instance['gravatar'] ), 70 );
 			}
 
 			if ( $instance['bio'] ) {

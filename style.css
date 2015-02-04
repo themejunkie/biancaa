@@ -1,8 +1,8 @@
 /*!
  * Theme Name:  Biancaa
  * Theme URI:   http://www.theme-junkie.com/themes/biancaa/
- * Description: BiancaA is a premium like, mobile ready, beautiful and easy-to-use Photoblogging WordPress theme.
- * Version:     1.0.1
+ * Description: BiancaA is a minimal, mobile ready, beautiful and easy-to-use Photoblogging WordPress theme.
+ * Version:     1.0.2
  * Author:      Theme Junkie
  * Author URI:  http://www.theme-junkie.com/
  * Tags:        gray, white, dark, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-menu, editor-style, sticky-post, threaded-comments, translation-ready, photoblogging
@@ -989,6 +989,7 @@ select[size="1"] {
 
   ::-webkit-validation-bubble-message {
     box-shadow: none;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, black));
     border: 0;
     color: white;
     font: 13px/17px "Lucida Grande", Arial, "Liberation Sans", FreeSans, sans-serif;
@@ -1025,42 +1026,20 @@ optgroup::-moz-focus-inner {
   padding: 0;
 }
 
-/*------------------------------------*\
-	$TABLE
-\*------------------------------------*/
 table {
-  font-size: 12px;
-  font-size: 0.92308rem;
-  max-width: 100%;
+  margin: 0 0 24px;
   width: 100%;
 }
 
-table,
-td {
-  margin: 21px 0;
-  margin: 1.61538rem 0;
-  padding: 5px 10px;
-  padding: 0.38462rem 0.76923rem;
-  border: 1px solid #e0e0e0;
-}
-
+caption,
 th {
-  margin: 5px 0 10px;
-  margin: 0.38462rem 0 0.76923rem;
-  padding: 5px 10px;
-  padding: 0.38462rem 0.76923rem;
-  background-color: #f0f0f0;
-  color: #878787;
-  text-align: left;
+  font-weight: bold;
 }
 
-tr {
-  background-color: white;
-}
-
-table button,
-table input {
-  *overflow: auto;
+th,
+td {
+  padding: 4px;
+  border-bottom: 1px solid #c5c5c5;
 }
 
 /*------------------------------------*\

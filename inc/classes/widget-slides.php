@@ -48,7 +48,7 @@ class Biancaa_Posts_Slides_Widget extends WP_Widget {
 		} 
 
 		// Perform the query.
-		$posts = get_posts( array( 'posts_per_page' => $instance['count'] ) );
+		$posts = get_posts( array( 'posts_per_page' => absint( $instance['count'] ) ) );
 
 		if ( $posts ) {
 			echo '<div class="posts-slides">';
@@ -59,7 +59,7 @@ class Biancaa_Posts_Slides_Widget extends WP_Widget {
 
 						echo '<div class="slide-item">';
 							if ( has_post_thumbnail( $post->ID ) ) {
-								echo '<a href="' . get_permalink( $post->ID ) . '">' . get_the_post_thumbnail( $post->ID, 'biancaa-widget', array( 'alt' => esc_attr( get_the_title( $post->ID ) ) ) ) . '</a>';
+								echo '<a href="' . esc_url( get_permalink( $post->ID ) ) . '">' . get_the_post_thumbnail( $post->ID, 'biancaa-widget', array( 'alt' => esc_attr( get_the_title( $post->ID ) ) ) ) . '</a>';
 							}
 						echo '</div>';
 
