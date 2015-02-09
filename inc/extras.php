@@ -143,20 +143,6 @@ function biancaa_setup_author() {
 add_action( 'wp', 'biancaa_setup_author' );
 
 /**
- * Generates the relevant template info.  Adds template meta with theme version.  Uses the theme 
- * name and version from style.css.
- *
- * @since 1.0.0
- */
-function biancaa_meta_template() {
-	$theme    = wp_get_theme( get_template() );
-	$template = sprintf( '<meta name="template" content="%1$s %2$s" />' . "\n", esc_attr( $theme->get( 'Name' ) ), esc_attr( $theme->get( 'Version' ) ) );
-
-	echo apply_filters( 'biancaa_meta_template', $template );
-}
-add_action( 'wp_head', 'biancaa_meta_template', 10 );
-
-/**
  * Removes default styles set by WordPress recent comments widget.
  *
  * @since 1.0.0

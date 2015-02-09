@@ -131,6 +131,46 @@ function biancaa_register_sidebars() {
 add_action( 'widgets_init', 'biancaa_register_sidebars' );
 
 /**
+ * Register Raleway Google font.
+ *
+ * @since  1.0.4
+ * @return string
+ */
+function biancaa_raleway_font_url() {
+	
+	$raleway_font_url = '';
+	/*
+	 * Translators: If there are characters in your language that are not supported
+	 * by Raleway, translate this to 'off'. Do not translate into your own language.
+	 */
+	if ( 'off' !== _x( 'on', 'Raleway font: on or off', 'tj_basic' ) ) {
+		$raleway_font_url = add_query_arg( 'family', urlencode( 'Raleway:400' ), "//fonts.googleapis.com/css" );
+	}
+
+	return $raleway_font_url;
+}
+
+/**
+ * Register Open Sans Google font.
+ *
+ * @since  1.0.4
+ * @return string
+ */
+function biancaa_open_sans_font_url() {
+	
+	$opensans_font_url = '';
+	/*
+	 * Translators: If there are characters in your language that are not supported
+	 * by Open Sans, translate this to 'off'. Do not translate into your own language.
+	 */
+	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'tj_basic' ) ) {
+		$opensans_font_url = add_query_arg( 'family', urlencode( 'Open Sans:400italic,600italic,400,600' ), "//fonts.googleapis.com/css" );
+	}
+
+	return $opensans_font_url;
+}
+
+/**
  * Custom template tags for this theme.
  */
 require trailingslashit( get_template_directory() ) . 'inc/template-tags.php';

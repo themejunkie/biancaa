@@ -19,7 +19,8 @@
 function biancaa_enqueue() {
 
 	// Load google fonts.
-	wp_enqueue_style( 'biancaa-fonts', '//fonts.googleapis.com/css?family=Raleway:400|Open+Sans:400italic,600italic,400,600', null, null, 'all' );
+	wp_enqueue_style( 'biancaa-raleway', biancaa_raleway_font_url(), array(), null );
+	wp_enqueue_style( 'biancaa-opensans', biancaa_open_sans_font_url(), array(), null );
 
 	// if WP_DEBUG and/or SCRIPT_DEBUG turned on, load the unminified styles & script.
 	if ( WP_DEBUG || SCRIPT_DEBUG ) {
