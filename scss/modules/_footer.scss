@@ -1,0 +1,44 @@
+.site-footer {
+	margin-bottom: 40px;
+	margin-bottom: 3.07692rem;
+}
+
+.site-info {
+	font-size: 12px;
+	font-size: 0.92308rem;
+}
+@media screen and (min-width: 320px) {
+	.site-info {
+		width: 100%;
+		float: right;
+		margin-right: 0;
+		margin-bottom: 30px;
+		margin-bottom: 2.30769rem;
+		text-align: center;
+	}
+}
+@media screen and (min-width: 801px) {
+	.site-info {
+		width: 27.30769%;
+		float: left;
+		margin-right: 3.84615%;
+		text-align: left;
+	}
+}
+.site-info .powered {
+	display: block;
+}
+
+/**
+ * Back to top
+ */
+#scrollUp {
+	bottom: 20px;
+	right: 20px;
+	padding: 8px;
+	background-color: #000;
+	color: #fff;
+	&:hover {
+		background-color: $accent-1;
+	}
+}

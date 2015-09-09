@@ -24,7 +24,7 @@ class Biancaa_Posts_Slides_Widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget(
+		parent::__construct(
 			'biancaa-posts-slides',                        // $this->id_base
 			__( 'Biancaa - Thumbnail Slides', 'biancaa' ), // $this->name
 			$widget_options                                // $this->widget_options

@@ -1,0 +1,70 @@
+.about .page {
+	padding: 0;
+	border-bottom: 0;
+}
+
+@media screen and (min-width: 320px) {
+	.about-photo {
+		width: 100%;
+		float: right;
+		margin-right: 0;
+		margin-bottom: 30px;
+		margin-bottom: 2.30769rem;
+	}
+}
+@media screen and (min-width: 801px) {
+	.about-photo {
+		width: 68.84615%;
+		float: left;
+		margin-right: 3.84615%;
+	}
+}
+
+@media screen and (min-width: 320px) {
+	.about-content {
+		width: 100%;
+		float: right;
+		margin-right: 0;
+	}
+}
+@media screen and (min-width: 801px) {
+	.about-content {
+		width: 27.30769%;
+		float: right;
+		margin-right: 0;
+	}
+}
+.about-content .entry-title {
+	margin-top: 0;
+}
+
+.about-social li {
+	padding: 10px 0;
+	padding: 0.76923rem 0;
+	vertical-align: middle;
+	border-bottom: 1px solid #efefef;
+}
+.about-social .genericon {
+	font-size: 30px;
+	font-size: 2.30769rem;
+}
+.about-social .genericon-twitter {
+	color: #00AEEF;
+}
+.about-social .genericon-facebook {
+	color: #0054A6;
+}
+.about-social .genericon-linkedin-alt {
+	color: #007BB6;
+}
+.about-social .genericon-dribbble {
+	color: #EA4C89;
+}
+.about-social a {
+	float: right;
+	color: #878787;
+	line-height: 2em;
+}
+.about-social a:hover {
+	color: #1abc9c;
+}

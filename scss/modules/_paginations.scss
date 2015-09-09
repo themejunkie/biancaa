@@ -1,0 +1,57 @@
+.pagination {
+	margin-bottom: 45px;
+	margin-bottom: 3.46154rem;
+	font-size: 14px;
+	font-size: 1.07692rem;
+	clear: both;
+}
+.pagination .page-numbers {
+	padding: 4px 13px;
+	padding: 0.30769rem 1rem;
+	display: inline-block;
+	border: 1px solid #efefef;
+	color: #555555;
+}
+.pagination .page-numbers.current, .pagination .page-numbers:hover {
+	background-color: black;
+	border-color: black;
+	color: white;
+}
+
+/**
+ * Post navigation
+ */
+.loop-nav {
+	margin-bottom: 40px;
+	margin-bottom: 3.07692rem;
+	border-bottom: 1px solid #efefef;
+	padding: 20px 0;
+	border-top: 1px solid #efefef;
+}
+.loop-nav div {
+	text-align: center;
+}
+.loop-nav div strong {
+	display: block;
+}
+.loop-nav div a {
+	padding: 0 10px;
+	padding: 0 0.76923rem;
+}
+.loop-nav .prev {
+	float: left;
+	width: 49%;
+	border-right: 1px solid #efefef;
+}
+.loop-nav .prev .dashicons {
+	float: left;
+	line-height: 38px;
+}
+.loop-nav .next {
+	float: right;
+	width: 50%;
+}
+.loop-nav .next .dashicons {
+	float: right;
+	line-height: 0;
+}

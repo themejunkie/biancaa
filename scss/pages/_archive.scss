@@ -1,0 +1,35 @@
+.archive .page-header, .search .page-header {
+	margin-bottom: 40px;
+	margin-bottom: 3.07692rem;
+	margin-top: 0;
+}
+.archive .page-header .page-title, .search .page-header .page-title {
+	text-transform: capitalize;
+}
+.archive .post, .search .post {
+	margin-bottom: 40px;
+	margin-bottom: 3.07692rem;
+	padding: 0;
+	border-bottom: 0;
+}
+.archive .post:nth-of-type(2n), .search .post:nth-of-type(2n) {
+	float: right;
+	margin-right: 0;
+}
+.archive .post .img-link, .search .post .img-link {
+	margin: 0;
+}
+@media screen and (min-width: 320px) {
+	.archive .post, .search .post {
+		width: 100%;
+		float: right;
+		margin-right: 0;
+	}
+}
+@media screen and (min-width: 801px) {
+	.archive .post, .search .post {
+		width: 48.07692%;
+		float: left;
+		margin-right: 3.84615%;
+	}
+}

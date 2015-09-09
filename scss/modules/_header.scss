@@ -1,0 +1,42 @@
+.site-header {
+	padding: 60px 0;
+	padding: 4.61538rem 0;
+	text-align: center;
+}
+.site-header .site-title {
+	margin-bottom: 0;
+	color: black;
+}
+.site-header .site-title a {
+	color: black;
+}
+@media screen and (min-width: 320px) {
+	.site-header .site-title {
+		font-size: 42px;
+		font-size: 3.23077rem;
+	}
+}
+@media screen and (min-width: 480px) {
+	.site-header .site-title {
+		font-size: 50px;
+		font-size: 3.84615rem;
+	}
+}
+@media screen and (min-width: 568px) {
+	.site-header .site-title {
+		font-size: 60px;
+		font-size: 4.61538rem;
+	}
+}
+.site-header .site-description {
+	font-size: 15px;
+	font-size: 1.15385rem;
+	margin-top: 0;
+	color: #878787;
+	font-family: "Open Sans", sans-serif;
+	font-style: italic;
+	letter-spacing: 0;
+}
+.site-header .avatar {
+	border-radius: 100px;
+}

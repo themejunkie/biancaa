@@ -121,39 +121,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 endif;
 
 /**
- * Sets the authordata global when viewing an author archive.
- *
- * This provides backwards compatibility with
- * http://core.trac.wordpress.org/changeset/25574
- *
- * It removes the need to call the_post() and rewind_posts() in an author
- * template to print information about the author.
- *
- * @since  1.0.0
- * @global WP_Query $wp_query WordPress Query object.
- * @return void
- */
-function biancaa_setup_author() {
-	global $wp_query;
-
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-	}
-}
-add_action( 'wp', 'biancaa_setup_author' );
-
-/**
- * Removes default styles set by WordPress recent comments widget.
- *
- * @since 1.0.0
- */
-function biancaa_remove_recent_comments_style() {
-	global $wp_widget_factory;
-	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
-}
-add_action( 'widgets_init', 'biancaa_remove_recent_comments_style' );
-
-/**
  * Change the excerpt more string.
  *
  * @since  1.0.0
@@ -220,3 +187,34 @@ function biancaa_contact_info_fields( $contactmethods ) {
 	return $contactmethods;
 }
 add_filter( 'user_contactmethods', 'biancaa_contact_info_fields' );
+
+/**
+ * Extend archive title
+ *
+ * @since  1.0.0
+ */
+function biancaa_extend_archive_title( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = get_the_author();
+	}
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'biancaa_extend_archive_title' );
+
+/**
+ * Customize tag cloud widget
+ *
+ * @since  1.0.0
+ */
+function biancaa_customize_tag_cloud( $args ) {
+	$args['largest']  = 12;
+	$args['smallest'] = 12;
+	$args['unit']     = 'px';
+	$args['number']   = 20;
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'biancaa_customize_tag_cloud' );

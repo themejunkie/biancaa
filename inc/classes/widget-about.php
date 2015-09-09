@@ -24,7 +24,7 @@ class Biancaa_About_Widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget(
+		parent::__construct(
 			'biancaa-about',                    // $this->id_base
 			__( 'Biancaa - About', 'biancaa' ), // $this->name
 			$widget_options                     // $this->widget_options

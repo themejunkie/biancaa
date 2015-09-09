@@ -88,8 +88,11 @@ function biancaa_categorized_blog() {
  * @since 1.0.0
  */
 function biancaa_category_transient_flusher() {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
 	// Like, beat it. Dig?
-	delete_transient( 'biancaa_categories' );
+	delete_transient( 'standard_categories' );
 }
 add_action( 'edit_category', 'biancaa_category_transient_flusher' );
 add_action( 'save_post',     'biancaa_category_transient_flusher' );
@@ -337,7 +340,7 @@ function biancaa_related_posts() {
 					$html .= '<li>';
 
 						if ( has_post_thumbnail() ) {
-							$html .=  '<a href="' . get_permalink() . '" rel="bookmark">' . get_the_post_thumbnail( get_the_ID(), 'biancaa-related', array( 'class' => 'related-thumb', 'alt' => esc_attr( get_the_title() ) ) ) . '</a>';
+							$html .=  '<a href="' . get_permalink() . '" rel="bookmark">' . get_the_post_thumbnail( get_the_ID(), 'biancaa-widget', array( 'class' => 'related-thumb', 'alt' => esc_attr( get_the_title() ) ) ) . '</a>';
 						}
 						$html .= '<h2 class="related-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h2>';
 						$html .= '<time class="entry-published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( get_the_date() ) . '</time>';

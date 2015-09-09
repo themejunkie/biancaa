@@ -32,6 +32,14 @@ function biancaa_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 
+	// Biancaa Settings Panel
+	$wp_customize->add_panel( 'biancaa_settings', array(
+		'priority'    => 150,
+		'capability'  => 'edit_theme_options',
+		'title'       => __( 'Biancaa Settings', 'biancaa' ),
+		'description' => __( 'This panel is provides several options from the theme.', 'biancaa' ),
+	) );
+
 	// Show hide gravatar setting.
 	$wp_customize->add_setting( 
 		'biancaa_show_gravatar',
@@ -80,6 +88,7 @@ function biancaa_customize_register( $wp_customize ) {
 		array(
 			'title'    => esc_html__( 'Logo', 'biancaa' ),
 			'priority' => 20,
+			'panel'    => 'biancaa_settings'
 		)
 	);
 
@@ -102,53 +111,6 @@ function biancaa_customize_register( $wp_customize ) {
 				)
 			) );
 
-	// Adds "Favicon Settings" section to the Theme Customization screen.
-	$wp_customize->add_section(
-		'biancaa_favicon_settings',
-		array(
-			'title'    => esc_html__( 'Favicon', 'biancaa' ),
-			'priority' => 25,
-		)
-	);
-
-		// Favicon setting.
-		$wp_customize->add_setting(
-			'biancaa_favicon',
-			array(
-				'sanitize_callback' => 'esc_url_raw',
-				'capability'        => 'edit_theme_options'
-			)
-		);
-
-			// Favicon control.
-			$wp_customize->add_control(
-				new WP_Customize_Image_Control( $wp_customize, 'biancaa_favicon_control',
-				array(
-					'label'    => esc_html__( 'Upload Favicon', 'biancaa' ),
-					'section'  => 'biancaa_favicon_settings',
-					'settings' => 'biancaa_favicon'
-				)
-			) );
-
-		// Custom apple touch favicon setting.
-		$wp_customize->add_setting(
-			'biancaa_favicon_touch',
-			array(
-				'sanitize_callback' => 'esc_url_raw',
-				'capability'        => 'edit_theme_options' 
-			)
-		);
-
-			/* Custom apple touch favicon control. */
-			$wp_customize->add_control(
-				new WP_Customize_Image_Control( $wp_customize, 'biancaa_favicon_touch_control',
-				array(
-					'label'    => esc_html__( 'Apple Touch Icon (144x144)', 'biancaa' ),
-					'section'  => 'biancaa_favicon_settings',
-					'settings' => 'biancaa_favicon_touch'
-				) 
-			) );
-
 	// Adds "Featured Posts Settings" section to the Theme Customization screen.
 	$wp_customize->add_section(
 		'biancaa_featured_settings',
@@ -156,6 +118,7 @@ function biancaa_customize_register( $wp_customize ) {
 			'title'       => esc_html__( 'Featured Posts', 'biancaa' ),
 			'description' => esc_html__( 'Featured posts slider, display a list of posts in a smooth slide effect.', 'biancaa' ),
 			'priority'    => 30,
+			'panel'       => 'biancaa_settings'
 		)
 	);
 
@@ -206,6 +169,7 @@ function biancaa_customize_register( $wp_customize ) {
 			'title'       => esc_html__( 'Featured Text', 'biancaa' ),
 			'description' => esc_html__( 'The text will appear on home page, below featured posts slider.', 'biancaa' ),
 			'priority'    => 32,
+			'panel'       => 'biancaa_settings'
 		)
 	);
 
@@ -234,6 +198,7 @@ function biancaa_customize_register( $wp_customize ) {
 			'title'       => esc_html__( 'Color Schemes', 'biancaa' ),
 			'description' => esc_html__( 'We provide a few premade color schemes to choose but you can also choose a custom colors.', 'biancaa' ),
 			'priority'    => 35,
+			'panel'       => 'biancaa_settings'
 		)
 	);
 
@@ -243,7 +208,7 @@ function biancaa_customize_register( $wp_customize ) {
 			array(
 				'default'           => 'premade',
 				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => 'biancaa_sanitize_radio'
+				'sanitize_callback' => 'sanitize_key'
 			)
 		);
 
@@ -269,7 +234,7 @@ function biancaa_customize_register( $wp_customize ) {
 			array(
 				'default'           => 'default',
 				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => 'biancaa_sanitize_radio'
+				'sanitize_callback' => 'sanitize_key'
 			)
 		);
 
@@ -317,6 +282,18 @@ function biancaa_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'biancaa_customize_register' );
 
 /**
+ * Move 'Layout' section to 'biancaa_settings' panel
+ *
+ * @since 1.0.0
+ */
+function biancaa_layout_customizer( $wp_customize ) {
+	$wp_customize->get_section( 'layout' )->panel    = 'biancaa_settings';
+	$wp_customize->get_section( 'layout' )->title    = __( 'Global Layout', 'biancaa' );
+	$wp_customize->get_section( 'layout' )->priority = 1;
+}
+add_action( 'customize_register', 'biancaa_layout_customizer', 99 );
+
+/**
  * Sanitize a checkbox to only allow 0 or 1
  *
  * @since  1.0.1
@@ -326,23 +303,6 @@ function biancaa_sanitize_checkbox( $input ) {
 		return 1;
     } else {
 		return 0;
-    }
-}
-
-/**
- * Sanitize color chooser.
- *
- * @since  1.0.1
- */
-function biancaa_sanitize_radio( $input ) {
-	global $wp_customize;
- 
-    $control = $wp_customize->get_control( $setting->id );
- 
-	if ( array_key_exists( $input, $control->choices ) ) {
-        return $input;
-    } else {
-        return $setting->default;
     }
 }
 
@@ -379,6 +339,7 @@ add_action( 'wp_enqueue_scripts', 'biancaa_color_schemes_css', 10 );
 
 /**
  * Favicon output.
+ * Fallback for next version.
  *
  * @since 1.0.0
  */

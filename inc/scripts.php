@@ -22,14 +22,17 @@ function biancaa_enqueue() {
 	wp_enqueue_style( 'biancaa-raleway', biancaa_raleway_font_url(), array(), null );
 	wp_enqueue_style( 'biancaa-opensans', biancaa_open_sans_font_url(), array(), null );
 
+	// Load plugins stylesheet
+	wp_enqueue_style( 'delivery-plugins-style', trailingslashit( get_template_directory_uri() ) . 'assets/css/plugins.min.css' );
+
 	// if WP_DEBUG and/or SCRIPT_DEBUG turned on, load the unminified styles & script.
-	if ( WP_DEBUG || SCRIPT_DEBUG ) {
+	if ( ! is_child_theme() && WP_DEBUG || SCRIPT_DEBUG ) {
 
 		// Load main stylesheet
 		wp_enqueue_style( 'biancaa-style', get_stylesheet_uri(), array( 'dashicons' ) );
 
 		// Load custom js plugins.
-		wp_enqueue_script( 'biancaa-plugins', trailingslashit( get_template_directory_uri() ) . 'assets/js/plugins.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'biancaa-plugins', trailingslashit( get_template_directory_uri() ) . 'assets/js/plugins.min.js', array( 'jquery' ), null, true );
 
 		// Load custom js methods.
 		wp_enqueue_script( 'biancaa-main', trailingslashit( get_template_directory_uri() ) . 'assets/js/main.js', array( 'jquery' ), null, true );
@@ -39,14 +42,14 @@ function biancaa_enqueue() {
 		// Load main stylesheet
 		wp_enqueue_style( 'biancaa-style', trailingslashit( get_template_directory_uri() ) . 'style.min.css', array( 'dashicons' ) );
 
-		// If child theme is active, load the stylesheet.
-		if ( is_child_theme() ) {
-			wp_enqueue_style( 'biancaa-child-style', get_stylesheet_uri() );
-		}
-
 		// Load custom js plugins.
 		wp_enqueue_script( 'biancaa-scripts', trailingslashit( get_template_directory_uri() ) . 'assets/js/biancaa.min.js', array( 'jquery' ), null, true );
 
+	}
+
+	// If child theme is active, load the stylesheet.
+	if ( is_child_theme() ) {
+		wp_enqueue_style( 'biancaa-child-style', get_stylesheet_uri() );
 	}
 
 	// Load comment-reply script.
@@ -58,25 +61,15 @@ function biancaa_enqueue() {
 add_action( 'wp_enqueue_scripts', 'biancaa_enqueue' );
 
 /**
- * Loads HTML5 Shiv & Respond js file.
+ * Loads HTML5 Shiv js file.
  * 
  * @since  1.0.0
  */
-function biancaa_special_scripts() {
+function biancaa_html5_shiv() {
 ?>
 <!--[if lt IE 9]>
-<script src="<?php echo trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.js'; ?>"></script>
+<script src="<?php echo trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js'; ?>"></script>
 <![endif]-->
 <?php
 }
-add_action( 'wp_head', 'biancaa_special_scripts', 15 );
-
-/**
- * js / no-js script.
- *
- * @since  1.0.0
- */
-function biancaa_no_js_script() {
-	echo "<script>document.documentElement.className = 'js';</script>" . "\n";
-}
-add_action( 'wp_footer', 'biancaa_no_js_script' );
+add_action( 'wp_head', 'biancaa_html5_shiv', 15 );

@@ -1,0 +1,117 @@
+.site {
+	max-width: 1120px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+.site:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+@media screen and (min-width: 320px) {
+	.site {
+	padding: 0 20px 20px;
+	padding: 0 1.53846rem 1.53846rem;
+	}
+}
+@media screen and (min-width: 480px) {
+	.site {
+	padding: 0 40px 20px;
+	padding: 0 3.07692rem 1.53846rem;
+	}
+}
+@media screen and (min-width: 568px) {
+	.site {
+	padding: 0 80px 20px;
+	padding: 0 6.15385rem 1.53846rem;
+	}
+}
+
+.container {
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.container:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+.layout-1c-narrow .container {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.layout-1c-narrow .container:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+@media screen and (min-width: 320px) {
+	.layout-2c-l .content-area {
+	width: 100%;
+	float: right;
+	margin-right: 0;
+	}
+}
+@media screen and (min-width: 801px) {
+	.layout-2c-l .content-area {
+	width: 68.84615%;
+	float: left;
+	margin-right: 3.84615%;
+	}
+}
+@media screen and (min-width: 320px) {
+	.layout-2c-l .widget-area {
+	width: 100%;
+	float: right;
+	margin-right: 0;
+	}
+}
+@media screen and (min-width: 801px) {
+	.layout-2c-l .widget-area {
+	width: 27.30769%;
+	float: right;
+	margin-right: 0;
+	}
+}
+
+@media screen and (min-width: 320px) {
+	.layout-2c-r .content-area {
+	width: 100%;
+	float: right;
+	margin-right: 0;
+	}
+}
+@media screen and (min-width: 801px) {
+	.layout-2c-r .content-area {
+	width: 68.84615%;
+	float: right;
+	margin-right: 0;
+	}
+}
+@media screen and (min-width: 320px) {
+	.layout-2c-r .widget-area {
+	width: 100%;
+	float: right;
+	margin-right: 0;
+	}
+}
+@media screen and (min-width: 801px) {
+	.layout-2c-r .widget-area {
+	width: 27.30769%;
+	float: left;
+	margin-right: 3.84615%;
+	}
+}
+
+.layout-1c .content-area,
+.layout-1c-narrow .content-area {
+	width: 100%;
+}
+.layout-1c .widget-area,
+.layout-1c-narrow .widget-area {
+	display: none;
+}

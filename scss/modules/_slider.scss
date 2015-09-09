@@ -1,0 +1,204 @@
+.slides .owl-wrapper:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.slides {
+  margin-bottom: 60px;
+  margin-bottom: 4.61538rem;
+  display: none;
+  position: relative;
+  width: 100%;
+  -ms-touch-action: pan-y;
+  border-bottom: 10px solid black;
+}
+.slides a {
+  display: block;
+  position: relative;
+}
+.slides img {
+  display: block;
+}
+.has-featured-text .slides {
+  margin-bottom: 0;
+}
+
+.slides-item:hover .slide-title,
+.slides-item:hover .published {
+  background-color: black;
+  color: white;
+}
+
+.slide-data {
+  right: 50px;
+  right: 3.84615rem;
+  bottom: 100px;
+  bottom: 7.69231rem;
+  position: absolute;
+}
+@media screen and (min-width: 320px) {
+  .slide-data {
+    visibility: hidden;
+  }
+}
+@media screen and (min-width: 601px) {
+  .slide-data {
+    visibility: visible;
+  }
+}
+
+.slide-title {
+  padding: 5px 10px;
+  padding: 0.38462rem 0.76923rem;
+  font-size: 35px;
+  font-size: 2.69231rem;
+  -webkit-transition: all 200ms ease-in-out 0s;
+          transition: all 200ms ease-in-out 0s;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.published {
+  padding: 5px 20px;
+  padding: 0.38462rem 1.53846rem;
+  font-size: 12px;
+  font-size: 0.92308rem;
+  -webkit-transition: all 200ms ease-in-out 0s;
+          transition: all 200ms ease-in-out 0s;
+  background-color: white;
+  color: #999;
+  display: inline-block;
+}
+
+.slides .owl-wrapper {
+  display: none;
+  position: relative;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.slides .owl-wrapper-outer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slides .owl-wrapper-outer.autoHeight {
+  -webkit-transition: height 500ms ease-in-out;
+          transition: height 500ms ease-in-out;
+}
+
+.slides .owl-item {
+  float: left;
+}
+
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div {
+  cursor: pointer;
+}
+
+.owl-controls {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grabbing a {
+  cursor: url(assets/img/grabbing.png) 8 8, move;
+}
+
+.slides .owl-wrapper,
+.slides .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+
+.owl-theme .owl-controls {
+  position: absolute;
+  bottom: 7px;
+  left: 2px;
+}
+@media screen and (min-width: 320px) {
+  .owl-theme .owl-controls {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 480px) {
+  .owl-theme .owl-controls {
+    display: block !important;
+  }
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+  color: #444;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /*IE7 life-saver */
+  margin: 0;
+  padding: 3px 10px;
+  font-size: 14px;
+  border-radius: 0;
+  background: #869791;
+  filter: Alpha(Opacity=50);
+  /*IE7 fix*/
+  opacity: 0.5;
+}
+
+.owl-theme .owl-controls.clickable .owl-buttons div:hover {
+  filter: Alpha(Opacity=100);
+  /*IE7 fix*/
+  opacity: 1;
+  text-decoration: none;
+}
+
+.owl-theme .owl-controls .owl-page {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.owl-theme .owl-controls .owl-page span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  filter: Alpha(Opacity=50);
+  opacity: 1;
+  border-radius: 0;
+  background: #fff;
+}
+
+.owl-theme .owl-controls .owl-page.active span.owl-numbers {
+  background-color: black;
+  color: white;
+}
+
+.owl-theme .owl-controls .owl-page span.owl-numbers {
+  -webkit-transition: all 200ms ease-in-out 0s;
+          transition: all 200ms ease-in-out 0s;
+  height: auto;
+  width: auto;
+  color: #444;
+  padding: 5px 14px;
+  font-size: 14px;
+  border-radius: 0;
+}
+.owl-theme .owl-controls .owl-page span.owl-numbers:hover {
+  background-color: black;
+  color: white;
+}
+
+.owl-item.loading {
+  min-height: 150px;
+  background: url(assets/img/AjaxLoader.gif) no-repeat center center;
+}

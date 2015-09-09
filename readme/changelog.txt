@@ -1,3 +1,12 @@
+1.0.5 - 10/09/2015
+* Updated all assets
+* Updated editor style
+* Updated theme-layout code
+* Updated editor style
+* Fixed deprecated widget code
+* Removed loop-navigation.php / Use default WordPress pagination
+* Removed favicon option in Customizer
+
 1.0.4 - 10/02/2015
 * Update function to load google fonts
 

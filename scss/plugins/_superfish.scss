@@ -1,0 +1,66 @@
+.sf-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu li {
+	position: relative;
+}
+.sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+.sf-menu li:hover > ul, .sf-menu li.sfHover > ul {
+	display: block;
+}
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+.sf-arrows > li > .sf-with-ul:focus:after, .sf-arrows > li:hover > .sf-with-ul:after {
+	border-top-color: white;
+}
+.sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: white;
+}
+.sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+}
+.sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	border: 5px solid transparent;
+	border-top-color: #cccccc;
+	border-top-color: rgba(0, 0, 0, 0.2);
+}
+.sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: #dFeEFF;
+	border-left-color: rgba(255, 255, 255, 0.5);
+}
+.sf-arrows ul li > .sf-with-ul:focus:after, .sf-arrows ul li:hover > .sf-with-ul:after {
+	border-left-color: white;
+}
+.sf-arrows ul .sfHover > .sf-with-ul:after {
+	border-left-color: white;
+}

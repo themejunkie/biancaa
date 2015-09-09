@@ -1,0 +1,102 @@
+// Import helpers files
+// -------------------------------------------------
+
+// Dependencies
+@import "bower_components/susy/sass/susy";
+
+// Variables
+@import "helpers/font-stacks";
+@import "helpers/color-palettes";
+
+// Mixins
+@import "helpers/mixins";
+@import "helpers/media-queries";
+
+// Typography Variables
+// -------------------------------------------------
+
+// Basic Typography
+$base-font-size:       13px;
+$base-line-height:     20px;
+$font-size:            $base-font-size !default;
+$browser-font-size:    16px !default;
+
+// Global 'bold' font-weight
+// some fonts only need to define with '700'
+$global-bold-weight:   700 !default;
+
+// Body type
+$body-font-family:     'Open Sans', sans-serif !default;
+$body-font-weight:     400 !default;
+$body-font-style:      normal !default;
+
+// Heading type
+$heading-font-family:  $body-font-family !default;
+$heading-font-weight:  400 !default;
+$heading-font-style:   normal !default;
+
+// Text element type
+$quote-font-family:    $georgia !default;
+$quote-font-style:     italic !default;
+
+// Table type
+$table-font-size:      12px !default;
+
+// Form type
+$form-font-size:       $base-font-size !default;
+$input-font-family:    $body-font-family !default;
+$input-font-size:      13px !default;
+$btn-font-family:      $body-font-family !default;
+$btn-font-size:        12px !default;
+$btn-font-weight:      $global-bold-weight !default;
+
+// Color Variables
+// -------------------------------------------------
+
+// Project base color
+$body-bg-color:        #f2f2f2 !default;
+$border-color:         #e9e9e9 !default;
+$accent-1:             #1abc9c !default;
+// $accent-2:             $black !default;
+
+// Selection color
+$selection-bg-color:   $black !default;
+$selection-font-color: $white !default;
+
+// Typography color
+$body-font-color:      #878787 !default;
+$heading-font-color:   #474747 !default;
+$del-font-color:       $gray_dark !default;
+$code-font-color:      #2080ad !default;
+$pre-bg-color:         #fafafa !default;
+$pre-font-color:       #2080ad !default;
+$pre-border-color:     #ededed !default;
+$quote-border-color:   $gray-lighter !default;
+$quote-font-color:     $gray-dark !default;
+$cite-font-color:      $black-lighter !default;
+
+// Link color
+$link-color:           $accent-1 !default;
+$link-hover-color:     lighten($link-color, 10%) !default;
+$link-visited-color:   darken($link-color, 5%) !default;
+
+// Table color
+$table-border-color:   $border-color !default;
+$table-th-bg-color:    $white-darker !default;
+$table-tr-bg-color:    $white !default;
+$table-font-color:     $body-font-color !default;
+
+// Form Color
+$input-bg-color:       $white !default;
+$input-border-color:   $border-color !default;
+$input-font-color:     $body-font-color !default;
+$placeholder-color:    #888 !default;
+$btn-border-color:     $input-border-color !default;
+$btn-font-color:       $body-font-color !default;
+
+// Misc Variables
+// -------------------------------------------------
+
+// Form
+$btn-border-radius:    0 !default;
+$input-border-radius:  0 !default;

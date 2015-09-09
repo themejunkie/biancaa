@@ -19,6 +19,22 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 660; /* pixels */
 }
 
+if ( ! function_exists( 'biancaa_content_width' ) ) :
+/**
+ * Set new content width if user uses 1 column layout.
+ *
+ * @since  1.0.0
+ */
+function biancaa_content_width() {
+	global $content_width;
+
+	if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c' ) ) ) {
+		$content_width = 960;
+	}
+}
+endif;
+add_action( 'template_redirect', 'biancaa_content_width' );
+
 if ( ! function_exists( 'biancaa_theme_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -50,18 +66,17 @@ function biancaa_theme_setup() {
 	add_image_size( 'biancaa-featured-full', 960, 370, true );
 	add_image_size( 'biancaa-slides', 960, 400, true );
 	add_image_size( 'biancaa-widget', 262, 200, true );
-	add_image_size( 'biancaa-related', 195, 110, true );
 
 	// Register custom navigation menu.
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Menu', 'biancaa' ),
-			'social'  => __( 'Social Menu' , 'biancaa' ),
+			'primary' => __( 'Primary Location', 'biancaa' ),
+			'social'  => __( 'Social Location' , 'biancaa' ),
 		)
 	);
 
 	// Add custom stylesheet file to the TinyMCE visual editor.
-	add_editor_style( array( 'assets/css/editor-style.css' ) );
+	add_editor_style( array( 'assets/css/editor-style.css', biancaa_raleway_font_url(), biancaa_open_sans_font_url() ) );
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'biancaa_custom_background_args', array(
@@ -143,7 +158,7 @@ function biancaa_raleway_font_url() {
 	 * Translators: If there are characters in your language that are not supported
 	 * by Raleway, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Raleway font: on or off', 'tj_basic' ) ) {
+	if ( 'off' !== _x( 'on', 'Raleway font: on or off', 'biancaa' ) ) {
 		$raleway_font_url = add_query_arg( 'family', urlencode( 'Raleway:400' ), "//fonts.googleapis.com/css" );
 	}
 
@@ -163,7 +178,7 @@ function biancaa_open_sans_font_url() {
 	 * Translators: If there are characters in your language that are not supported
 	 * by Open Sans, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'tj_basic' ) ) {
+	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'biancaa' ) ) {
 		$opensans_font_url = add_query_arg( 'family', urlencode( 'Open Sans:400italic,600italic,400,600' ), "//fonts.googleapis.com/css" );
 	}
 
@@ -195,7 +210,6 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
  *
  * @link  http://themehybrid.com/hybrid-core Hybrid Core site.
  */
-require trailingslashit( get_template_directory() ) . 'inc/hybrid/loop-pagination.php';
 require trailingslashit( get_template_directory() ) . 'inc/hybrid/theme-layouts.php';
 
 /**
