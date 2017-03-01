@@ -106,6 +106,9 @@ function biancaa_theme_setup() {
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
+	// Indicate widget sidebars can use selective refresh in the Customizer.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
 }
 endif; // biancaa_theme_setup
 add_action( 'after_setup_theme', 'biancaa_theme_setup' );
@@ -217,3 +220,13 @@ require trailingslashit( get_template_directory() ) . 'inc/hybrid/theme-layouts.
  */
 require trailingslashit( get_template_directory() ) . 'inc/classes/widget-about.php';
 require trailingslashit( get_template_directory() ) . 'inc/classes/widget-slides.php';
+
+/**
+ * Require and recommended plugins list.
+ */
+require trailingslashit( get_template_directory() ) . 'inc/plugins.php';
+
+/**
+ * Demo importer
+ */
+require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';
