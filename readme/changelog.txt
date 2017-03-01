@@ -1,3 +1,7 @@
+1.0.6 - March 01, 2017
+* Update assets
+	assets/
+
 1.0.5 - 10/09/2015
 * Updated all assets
 * Updated editor style
