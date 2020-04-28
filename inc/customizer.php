@@ -338,25 +338,6 @@ function biancaa_color_schemes_css() {
 add_action( 'wp_enqueue_scripts', 'biancaa_color_schemes_css', 10 );
 
 /**
- * Favicon output.
- * Fallback for next version.
- *
- * @since 1.0.0
- */
-function biancaa_favicon_output() {
-
-	if ( get_theme_mod( 'biancaa_favicon' ) ) {
-		echo '<link href="' . esc_url( get_theme_mod( 'biancaa_favicon' ) ) . '" rel="icon">' . "\n";
-	}
-
-	if ( get_theme_mod( 'biancaa_favicon_touch' ) ) {
-		echo '<link href="' . esc_url( get_theme_mod( 'biancaa_favicon_touch' ) ) . '" rel="apple-touch-icon-precomposed" sizes="144x144">' . "\n";
-	}		
-
-}
-add_action( 'wp_head', 'biancaa_favicon_output', 5 );
-
-/**
  * Customizer css output.
  *
  * @since 1.0.0

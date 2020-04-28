@@ -59,17 +59,3 @@ function biancaa_enqueue() {
 
 }
 add_action( 'wp_enqueue_scripts', 'biancaa_enqueue' );
-
-/**
- * Loads HTML5 Shiv js file.
- * 
- * @since  1.0.0
- */
-function biancaa_html5_shiv() {
-?>
-<!--[if lt IE 9]>
-<script src="<?php echo trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js'; ?>"></script>
-<![endif]-->
-<?php
-}
-add_action( 'wp_head', 'biancaa_html5_shiv', 15 );

@@ -14,8 +14,8 @@ function designbiz_register_plugins() {
 	$plugins = array(
 
 		array(
-			'name'     => 'One Click Demo Import',
-			'slug'     => 'one-click-demo-import',
+			'name'     => 'MailOptin',
+			'slug'     => 'mailoptin',
 			'required' => false,
 		),
 

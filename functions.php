@@ -226,7 +226,5 @@ require trailingslashit( get_template_directory() ) . 'inc/classes/widget-slides
  */
 require trailingslashit( get_template_directory() ) . 'inc/plugins.php';
 
-/**
- * Demo importer
- */
-require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';
+// MailOptin integration
+require get_template_directory() . '/inc/classes/mailoptin.php';
